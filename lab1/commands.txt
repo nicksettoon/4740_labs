@@ -1,0 +1,3 @@
+   53  hfs -cat shakespeare/* | wc -l
+   54  hfs -cat shakespeare/* | grep -a tiger | wc -l
+   59  hfs -cat shakespeare/* | grep -a tiger | sort | hfs -put - tigers.txt
