@@ -1,15 +1,19 @@
+DIR=lab2
 
-count:
+count: # counts all the words in each file, then all the files and outputs their frequency
 	./commands.sh
 
-clean:
+clean: # cleans stuff up from the previous run
 	-make cleanlab 2> /dev/null
 	#-make cleanwords 2> /dev/null
 
-cleanlab:
-	-hdfs dfs -rm -r lab2 2> /dev/null
+cleanlab: # cleans entire directory
+	-hdfs dfs -rm -r ${DIR} 2> /dev/null
 
-#cleanwords:
+list: # displays this file
+	cat ./Makefile
+
+#cleanwords: # attempted to use sed to do some substitutions before running final MapReduce
 	#-rm ./all-words 2> /dev/null
 	#-hdfs dfs -rm lab2/all-words 2> /dev/null
 	#-hdfs dfs -rm -r lab2/all-counts 2> /dev/null
