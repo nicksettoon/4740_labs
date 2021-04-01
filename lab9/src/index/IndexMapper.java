@@ -16,8 +16,8 @@ public class IndexMapper extends Mapper<Text, Text, NullWritable, Put> {
 	  byte[] columnFamily = Bytes.toBytes("page");
 	  byte[] lineNum = Bytes.toBytes(key.toString());
 	  byte[] valueOut = Bytes.toBytes("");
-	  System.out.println("\nmapper start");
-	  System.out.println(value);
+//	  System.out.println("\nmapper start");
+//	  System.out.println(value);
 
 	  for (String word : value.toString().split("\\W+"))
 	  {
