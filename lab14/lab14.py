@@ -14,6 +14,9 @@ df2.select("dest", "cnt").where("dest != 'United States'").orderBy(desc("cnt")).
  ## EXERCISE 2 ##
 # same as exercise 1, but with SQL query syntax
 df2.registerTempTable("flights")
-sqlCtx.sql("select dest, cnt FROM flights WHERE dest <> 'United States' ORDER BY cnt").show(5)
+sqlCtx.sql("select dest, cnt FROM flights WHERE dest <> 'United States' ORDER BY cnt DESC").show(5)
 
 ## EXCERCISE 3 ##
+# shows number of intra (true) and inter (false) country flights
+df2.selectExpr("*","(dest=origin) as withinCountry").groupBy("withinCountry").sum("cnt").withColumnRenamed("SUM(cnt#5L)","total").show()
+
